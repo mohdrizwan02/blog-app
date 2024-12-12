@@ -42,7 +42,7 @@ const Blogs = () => {
     className = 'bg-green-600 py-1 px-2'
     ref={buttonref}
     children ='add blog post'
-     buttonClick = {handleClick}
+    buttonClick = {handleClick}
 
     />
 
