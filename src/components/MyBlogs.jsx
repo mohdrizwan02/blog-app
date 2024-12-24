@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import postService from "../appwrite/PostService";
+import { useSelector } from "react-redux";
 import { Button } from "../components";
-import { useNavigate } from "react-router-dom";
-const Blogs = () => {
-  const navigate = useNavigate();
-  const [posts, setPosts] = useState();
 
+const MyBlogs = () => {
   const buttonref = React.useRef(null);
-
+  const [posts, setPosts] = React.useState();
+  const userid = useSelector((state) => state.auth.userData.$id);
   const handleClick = () => {
     console.log("button clicked");
     navigate("../add-blog");
   };
-
-  useEffect(() => {
+  React.useEffect(() => {
     if (buttonref.current) {
       buttonref.current.focus();
     }
-
-    postService.getPosts().then((response) => {
+    
+    postService.getUserPosts(userid).then((response) => {
       if (response) {
         setPosts(response.documents);
+        
       } else {
         console.log("no posts");
       }
     });
   }, []);
-
   return (
     <>
       <div>
@@ -34,12 +32,12 @@ const Blogs = () => {
           <div className="container px-6 py-10 mx-auto">
             <div className="flex justify-between">
               <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl ">
-                Blogs you can View
+                Your Blogs
               </h1>
               <Button
                 className="bg-green-600 py-1 px-2"
                 ref={buttonref}
-                children="add blog post"
+                children="add new blog post"
                 buttonClick={handleClick}
               />
             </div>
@@ -86,4 +84,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default MyBlogs;

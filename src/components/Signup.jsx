@@ -22,7 +22,7 @@ const Signup = () => {
 
     authService.register({ name, email, password }).then((user) => {
       if (user.success) {
-        console.log("user logged in successfully")
+        console.log("user created in successfully")
         navigate('/login')
       }
     });

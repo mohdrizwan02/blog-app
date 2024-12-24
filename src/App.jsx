@@ -20,7 +20,11 @@ function App() {
     <div className='min-h-screen mx-auto bg-white'>
 
       <Header/>
+      <div className="min-h-screen">
+
       <Outlet />
+      </div>
+      
       <Footer/>
     </div>
     </>

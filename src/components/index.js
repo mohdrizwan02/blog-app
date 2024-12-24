@@ -9,6 +9,8 @@ import LogoutBtn from "./Header/LogoutBtn";
 import Blogs from "./Blogs";
 import AddBlog from "./AddBlog";
 import MiniHeader from './Header/MiniHeader'
+import Blog from './Blog';
+import MyBlogs from "./MyBlogs";
 export {
     Input,
     Button,
@@ -21,4 +23,7 @@ export {
     Blogs,
     AddBlog,
     MiniHeader,
+    Blog,
+    MyBlogs,
+    
 }

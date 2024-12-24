@@ -1,13 +1,11 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import {Blog} from '../components'
 
 export const BlogPage = () => {
-    const {blogId} = useParams()
+  const { blogId } = useParams();
+  
   return (
-    <>
-    <div>BlogPage</div>
-    {blogId}
-    </>
-  )
-}
-
+    <Blog blogId={blogId} />
+  );
+};
